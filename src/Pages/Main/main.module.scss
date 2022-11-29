@@ -1,0 +1,13 @@
+.project {
+    &__title { 
+        color: rgb(78, 103, 138);
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 400;
+    }
+
+    &_info {
+        display: flex;
+        flex-direction: column;
+    }
+}

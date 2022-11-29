@@ -22,23 +22,23 @@ function Header() {
             <span className={s.account__title}>Личный кабинет</span>
           </div>
           <ul className={s.navbar_menu}>
-            <a href="" className="navbar_menu__link">
-              <img src={home} alt="" className="navbar_menu__icon" />
+            <a href="" className={s.navbar_menu__link}>
+              <img src={home} alt="" className={s.navbar_menu__icon} />
             </a>
-            <a href="" className="navbar_menu__link">
-              <img src={calendar} alt="" className="navbar_menu__icon" />
+            <a href="" className={s.navbar_menu__link}>
+              <img src={calendar} alt="" className={s.navbar_menu__icon} />
             </a>
-            <a href="" className="navbar_menu__link">
-              <img src={share} alt="" className="navbar_menu__icon" />
+            <a href="" className={s.navbar_menu__link}>
+              <img src={share} alt="" className={s.navbar_menu__icon} />
             </a>
-            <a href="" className="navbar_menu__link">
-              <img src={settings} alt="" className="navbar_menu__icon" />
+            <a href="" className={s.navbar_menu__link}>
+              <img src={settings} alt="" className={s.navbar_menu__icon} />
             </a>
-            <a href="" className="navbar_menu__link">
-              <img src={logout} alt="" className="navbar_menu__icon" />
+            <a href="" className={s.navbar_menu__link}>
+              <img src={logout} alt="" className={s.navbar_menu__icon} />
             </a>
-            <a href="" className="navbar_menu__link">
-              <img src={notifications} alt="" className="navbar_menu__icon" />
+            <a href="" className={ `${s.navbar_menu__link} ${s.notifications}`}>
+              <img src={notifications} alt="" className={s.navbar_menu__icon} />
             </a>
           </ul>
         </div>
