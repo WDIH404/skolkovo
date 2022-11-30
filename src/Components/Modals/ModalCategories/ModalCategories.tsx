@@ -2,13 +2,19 @@ import React, { FunctionComponent } from 'react';
 import s from './modalCategories.module.scss';
 
 interface OwnProps {
-  title: string,
+  title: string
   categories: string[]
+  action: ()=>void
 }
 
 type Props = OwnProps;
 
 const ModalCategories: FunctionComponent<Props> = (props) => {
+
+  const onButtonClick = () => {
+    props.action()
+  }
+
   return (
     <>
       <div className={s.modal_categories}>
@@ -17,7 +23,7 @@ const ModalCategories: FunctionComponent<Props> = (props) => {
           {
             props.categories.map((category) => {
               return (
-                <span className={s.categories__item}>{category}</span>
+                <span onClick={onButtonClick} className={s.categories__item}>{category}</span>
               )
             })
           }

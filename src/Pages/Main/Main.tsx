@@ -22,9 +22,11 @@ import Header from '../../Components/Header/Header';
 import PrimaryButton from '../../Components/Buttons/PrimaryButton/PrimaryButton';
 import Counter from '../../Components/Counter/Counter';
 import ModalCategories from '../../Components/Modals/ModalCategories/ModalCategories';
+import ModalSubstations from '../../Components/Modals/ModalSubstations/ModalSubstations'
 
 function Main() {
   const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
   return (
     <>
       <Header />
@@ -119,7 +121,12 @@ function Main() {
                 <img src={Electrics} alt="" />
                 <h4 className={s.section__title}>Электротехническое оборудование</h4>
                 {
-                  open && <ModalCategories title={'Электротехническое оборудование'} categories={['Реконструкция', 'Новое строительство']}/>
+                  open &&
+                  <ModalCategories action={() => setOpen2(!open2)}title={'Электротехническое оборудование'} categories={['Реконструкция', 'Новое строительство']}/>
+                }
+                {
+                  open2 &&
+                  <ModalCategories action={() => null} title={'Новое строительство'} categories={['Основное оборудование', 'Вспомогательное оборудование']}/>
                 }
               </div>
             </div>
@@ -129,6 +136,7 @@ function Main() {
               <PrimaryButton title={'Партнёры'} />
             </div>
           </div>
+          <ModalSubstations title={"Высокая сторона"} voltageValues={['500', '220', '110', '35', '10', '6']} cellsValueMin = {'2'} cellsValueMax = {'10'}/>
         </div>
       </div>
     </>
