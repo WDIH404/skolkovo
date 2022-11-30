@@ -1,13 +1,148 @@
 .project {
-    &__title { 
-        color: rgb(78, 103, 138);
-        font-size: 20px;
-        line-height: 25px;
-        font-weight: 400;
+  &__title {
+    color: rgb(78, 103, 138);
+    font-size: 20px;
+    padding: 25px 40px;
+    line-height: 25px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    min-width: 252px;
+  }
+}
+
+.main {
+  &_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .support {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(rgba(252, 252, 254, 1) 0%, rgba(239, 242, 249, 1) 100%);
+      padding: 25px 40px;
+      border-radius: 7px;
+      color: rgb(78, 103, 138);
+      font-size: 20px;
+      line-height: 25px;
+      box-shadow: 4px 4px 16px rgba(64, 76, 138, 0.1);
+      cursor: pointer;
+      &:hover {
+        background: linear-gradient(rgba(130, 193, 227, 1) 0%, rgba(199, 231, 247, 1) 100%);
+      }
+    }
+  }
+
+  &_bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__counters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.buttons_sections {
+  display: flex;
+  gap: 80px;
+  position: relative;
+  .section {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 150px;
+      gap: 20px;
+      cursor: pointer;
     }
 
-    &_info {
-        display: flex;
-        flex-direction: column;
+    &__title {
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
     }
+  }
+}
+
+.accordion {
+  border-radius: 7px;
+  min-width: 500px;
+  background: linear-gradient(rgba(252, 252, 254, 1) 0%, rgba(239, 242, 249, 1) 100%);
+}
+
+.accordion__item + .accordion__item {
+  border: none;
+}
+
+.accordion__button {
+  box-shadow: 4px 4px 16px rgba(64, 76, 138, 0.1);
+  color: #4E678A;
+  cursor: pointer;
+  padding: 15px 30px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  position: relative;
+}
+
+.accordion__button:hover {
+  background-color: rgba(0, 0, 0, .03);
+}
+
+.accordion__button:after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  right: 10px;
+  height: 10px;
+  width: 10px;
+  margin-right: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .2s ease-in-out;
+}
+
+.accordion__button[aria-expanded='true']::after,
+.accordion__button[aria-selected='true']::after {
+  transform: rotate(45deg);
+}
+
+[hidden] {
+  display: none;
+}
+
+.accordion__panel {
+  padding: 20px;
+  animation: fadein 0.35s ease-in;
+  border-radius: 0 0 7px 7px;
+  background-color: #FFFFFF;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

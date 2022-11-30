@@ -1,0 +1,18 @@
+.counter {
+    background: linear-gradient(rgba(252, 252, 254, 1) 0%, rgba(239, 242, 249, 1) 100%);
+    padding: 25px 40px;
+    border-radius: 7px;
+    color: rgb(78, 103, 138);
+    line-height: 25px;
+    box-shadow: 4px 4px 16px rgba(64, 76, 138, 0.1);
+    text-align: center;
+
+    &__value {
+        font-size: 46px;
+        margin-bottom: 15px;
+    }
+
+    &__label {
+        font-size: 20px;
+    }
+}

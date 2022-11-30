@@ -1,25 +1,24 @@
 import React, {FunctionComponent} from 'react';
-import s from "./primaryButton.module.scss"
+import s from "./counter.module.scss"
 
 interface OwnProps {
   
-  title: string
-  action: ()=>void
+  value: number
+  label: string
 }
 
 type Props = OwnProps;
 
-const PrimaryButton: FunctionComponent<Props> = (props) => {
-
-  const onButtonClick = () => {
-    props.action()
-  }
+const Counter: FunctionComponent<Props> = (props) => {
 
   return (
     <>
-      <button onClick={onButtonClick} className={s.primary}>{props.title}</button>
+      <div className={s.counter}>
+        <h2 className={s.counter__value}>{props.value}</h2>
+        <span className={s.counter__label}>{props.label}</span>
+      </div>
     </>
   )
 }
 
-export default PrimaryButton
+export default Counter

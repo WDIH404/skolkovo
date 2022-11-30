@@ -1,0 +1,43 @@
+.modal {
+  &_categories {
+    background: linear-gradient(rgba(252, 252, 254, 1) 0%, rgba(239, 242, 249, 1) 100%);
+    box-shadow: 4px 4px 16px rgba(64, 76, 138, 0.1);
+    border-radius: 7px;
+    padding: 25px;
+    min-width: 275px;
+    position: absolute;
+    bottom: 70px;
+    right: -250px;
+    .categories {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      &__item {
+        color: rgb(78, 103, 138);
+        font-size: 16px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+          color: rgb(99, 169, 208);
+        }
+        &::before {
+          content: '';
+          display: block;
+          height: 1px;
+          width: 100%;
+          background: rgb(78, 103, 138);
+          position: absolute;
+          top: -5px;
+        }
+      }
+    }
+  }
+  &__title {
+    color: rgb(99, 169, 208);
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 60px;
+    max-width: 170px;
+  }
+}
