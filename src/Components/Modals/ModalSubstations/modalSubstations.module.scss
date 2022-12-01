@@ -5,6 +5,9 @@
     gap: 30px;
   }
   &_substations {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     background: linear-gradient(rgba(252, 252, 254, 1) 0%, rgba(239, 242, 249, 1) 100%);
     box-shadow: 4px 4px 16px rgba(64, 76, 138, 0.1);
     border-radius: 7px;
@@ -15,6 +18,22 @@
       color: rgb(78, 103, 138);
       font-size: 16px;
       line-height: 20px;
+      .checkbox{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        .wrapper{
+          width: 18px;
+          height: 18px;
+          border: 1px solid rgb(78, 103, 138);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img{
+            width: 13px;
+          }
+        }
+      }
       &__title {
         color: rgb(78, 103, 138);
         font-size: 16px;
@@ -27,17 +46,6 @@
       }
       &__item {
         position: relative;
-      }
-      &__item::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: -25px;
-        width: 18px;
-        height: 18px;
-        cursor: pointer;
-        background-image: url(../../../Assets/img/checkbox.svg);
       }
     }
     .cells {
