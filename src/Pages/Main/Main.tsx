@@ -27,6 +27,16 @@ import ModalSubstations from '../../Components/Modals/ModalSubstations/ModalSubs
 function Main() {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
+  const [open5, setOpen5] = React.useState(false);
+  const [open6, setOpen6] = React.useState(false);
+  const [side, setSide] = React.useState("")
+
+  React.useEffect(()=>{
+    console.log(side)
+  },[side])
+
   return (
     <>
       <Header />
@@ -35,7 +45,7 @@ function Main() {
           <div className={s.main_top}>
             <div className={s.project_info}>
               <h1 className={s.project__title}>Название проекта</h1>
-              <PrimaryButton title={'Новый проект'} />
+              <PrimaryButton action={() =>setOpen(true)} title={'Новый проект'} />
               <PrimaryButton title={'Проект в работе'} />
             </div>
             <div className={s.project__accordion}>
@@ -116,19 +126,69 @@ function Main() {
               <div className={`${s.section__item} ${s.green}`}>
                 <img src={Thermal} alt="" />
                 <h4 className={s.section__title}>Объекты теплоэнергетики</h4>
-              </div>
-              <div onClick={() => setOpen(!open)} className={`${s.section__item} ${s.blue}`}>
-                <img src={Electrics} alt="" />
-                <h4 className={s.section__title}>Электротехническое оборудование</h4>
                 {
-                  open &&
-                  <ModalCategories action={() => setOpen2(!open2)}title={'Электротехническое оборудование'} categories={['Реконструкция', 'Новое строительство']}/>
-                }
-                {
-                  open2 &&
-                  <ModalCategories action={() => null} title={'Новое строительство'} categories={['Основное оборудование', 'Вспомогательное оборудование']}/>
-                }
+                  open5 &&
+                   ( side === "Высокая сторона" ?
+                      <ModalSubstations action={()=> {
+                        setOpen6(true)
+                        setOpen5(false)
+                      }} title={"Высокая сторона"} voltageValues={['500', '220', '110', '35', '10', '6']} cellsValueMin = {'2'} cellsValueMax = {'10'}/> :
+                      side === "Средняя сторона" ?
+                          <ModalSubstations action={()=> {
+                            setOpen6(true)
+                            setOpen5(false)
+                          }} title={"Средняя сторона"} voltageValues={['220', '110', '35', 'нет']} cellsValueMin = {'2'} cellsValueMax = {'30'}/> :
+                          <ModalSubstations action={()=> {
+                            setOpen6(true)
+                            setOpen5(false)
+                          }}  title={"Низкая сторона"} voltageValues={['35', '10', '6', '0', "4"]} cellsValueMin = {'2'} cellsValueMax = {'50'}/>
+               ) }
               </div>
+              {
+                !open5 &&
+                  <div className={`${s.section__item} ${s.blue}`}>
+                    <img src={Electrics} alt="" />
+                    <h4 className={s.section__title}>Электротехническое оборудование</h4>
+                    {
+                        open &&
+                        <ModalCategories action={() => {
+                          setOpen(false)
+                          setOpen2(true)
+                        }
+                        } title={'Электротехническое оборудование'} categories={['Реконструкция', 'Новое строительство']}/>
+                    }
+                    {
+                        open2 &&
+                        <ModalCategories action={() => {
+                          setOpen2(false)
+                          setOpen3(true)}
+                        } title={'Новое строительство'} categories={['Основное оборудование', 'Вспомогательное оборудование']}/>
+                    }
+                    {
+                        open3 &&
+                        <ModalCategories action={() => {
+                          setOpen3(false)
+                          setOpen4(true)}
+                        } title={'Распределительное оборудование'} categories={['Линии электропередач', 'Подстанции']}/>
+                    }
+                    {
+                        open4 &&
+                        <ModalCategories action={() => {
+                          setOpen4(false)
+                          setOpen5(true)}
+                        } setState={setSide} title={'Подстанции'} categories={['Высокая сторона', 'Средняя сторона', `Низкая сторона`]}/>
+                    }
+                    {
+                        open6 &&
+                        <ModalCategories action={() => {
+                          setOpen5(false)
+                        /*  setOpen5(true)*/
+                        }
+                        } setState={setSide} title={'Ввести наименование проекта'} categories={['Высокая сторона', 'Средняя сторона', `Низкая сторона`]} type={"input"}/>
+                    }
+                  </div>
+
+              }
             </div>
             <div className={s.main__counters}>
               <Counter value={122} label={'проектировщика'}/>
@@ -136,7 +196,6 @@ function Main() {
               <PrimaryButton title={'Партнёры'} />
             </div>
           </div>
-          {/* <ModalSubstations title={"Высокая сторона"} voltageValues={['500', '220', '110', '35', '10', '6']} cellsValueMin = {'2'} cellsValueMax = {'10'}/> */}
         </div>
       </div>
     </>
