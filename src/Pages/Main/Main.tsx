@@ -18,6 +18,7 @@ import {
 import global from '../../global.module.scss';
 import 'react-accessible-accordion/dist/fancy-example.css';
 
+import Registration from '../Registration/Registration'
 import Header from '../../Components/Header/Header';
 import PrimaryButton from '../../Components/Buttons/PrimaryButton/PrimaryButton';
 import Counter from '../../Components/Counter/Counter';
@@ -39,6 +40,7 @@ function Main() {
 
   return (
     <>
+      <Registration />
       <Header />
       <div className={global.container}>
         <div className={s.main_container}>

@@ -1,0 +1,59 @@
+.registration {
+  &_page {
+    background-image: url(../../Assets/img/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+  &__logo {
+    margin-bottom: 40px;
+  }
+  &_content {
+  }
+
+  &__form {
+    background-image: url(../../Assets/img/form_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 30px;
+    bottom: -80px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+    align-items: center;
+    .form_auth {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .auth {
+        &_control {
+          display: flex;
+          justify-content: space-between;
+        }
+        &__button {
+          background: none;
+          color: rgb(255, 255, 255);
+          font-size: 10px;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+
+  &__block {
+    width: 900px;
+    background: linear-gradient(rgba(222, 233, 253, 1) 0%, rgba(174, 204, 244, 1) 100%);
+    height: 250px;
+    position: relative;
+    
+  }
+}
+
