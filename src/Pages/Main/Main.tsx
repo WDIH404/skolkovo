@@ -136,7 +136,7 @@ function Main() {
               <PrimaryButton title={'Партнёры'} />
             </div>
           </div>
-          <ModalSubstations title={"Высокая сторона"} voltageValues={['500', '220', '110', '35', '10', '6']} cellsValueMin = {'2'} cellsValueMax = {'10'}/>
+          {/* <ModalSubstations title={"Высокая сторона"} voltageValues={['500', '220', '110', '35', '10', '6']} cellsValueMin = {'2'} cellsValueMax = {'10'}/> */}
         </div>
       </div>
     </>
